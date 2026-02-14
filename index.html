@@ -10,10 +10,25 @@
     
   <body>
 
-    <audio id="bg-music" autoplay loop>
+    <!-- Ito ang HTML -->
+<audio id="bg-music" loop>
     <source src="music.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
-    </audio>
+</audio>
+
+<!-- Ito ang JavaScript na nagco-control ng music -->
+<script>
+  const music = document.getElementById('bg-music');
+
+  function playMusicOnce() {
+    music.play().catch(err => console.log(err));
+    document.body.removeEventListener('click', playMusicOnce);
+    document.body.removeEventListener('touchstart', playMusicOnce);
+  }
+
+  document.body.addEventListener('click', playMusicOnce);
+  document.body.addEventListener('touchstart', playMusicOnce);
+</script>
   <!--  
  
   CSS Blossoming Flowers at Magical Night.
