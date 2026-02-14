@@ -1,11 +1,14 @@
 const music = document.getElementById('bg-music');
+const btn = document.getElementById('startBtn');
+const flowers = document.querySelector('.flowers');
 
-function playMusicOnce() {
+btn.addEventListener('click', () => {
+  // Patugtugin ang music
   music.play().catch(err => console.log(err));
-  document.body.removeEventListener('click', playMusicOnce);
-  document.body.removeEventListener('touchstart', playMusicOnce);
-}
 
-// Tap anywhere to play
-document.body.addEventListener('click', playMusicOnce);
-document.body.addEventListener('touchstart', playMusicOnce);
+  // Optional: magdagdag ng animation class para magsayaw ang flowers
+  flowers.classList.add('dance');
+
+  // Itago ang button pagkatapos pindutin
+  btn.style.display = 'none';
+});
